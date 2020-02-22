@@ -22,7 +22,13 @@ function maxSubarraySum(array, number) {
         let newArr = array.slice(i, number + i)
         subarrays.push(newArr)
     }
-    console.log(subarrays)
+    let tallies = []
+    for (let i = 0; i < subarrays.length; i++) {
+        let sum = subarrays.reduce((a, b) => a + b, 0)
+        tallies.push(sum)
+    }
+
+    console.log(tallies)
 
 
 }
