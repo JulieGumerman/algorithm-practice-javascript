@@ -16,19 +16,21 @@ function maxSubarraySum(array, number) {
     let subarrays = []
     let counter = number - 1
     for (let i = 0; i < array.length; i++) {
-        console.log("counter!!!", counter)
-        let endpoint = counter + i
-        console.log("endpoint!!!", endpoint)
         let newArr = array.slice(i, number + i)
         subarrays.push(newArr)
     }
     let tallies = []
-    for (let i = 0; i < subarrays.length; i++) {
-        let sum = subarrays.reduce((a, b) => a + b, 0)
+    for (let j = 0; j < subarrays.length; j++) {
+        let sum = subarrays[j].reduce((a, b) => a + b, 0)
         tallies.push(sum)
     }
 
-    console.log(tallies)
+
+    let sorted = tallies.sort()
+
+    console.log(sorted[sorted.length - 1])
+    
+
 
 
 }
