@@ -35,6 +35,23 @@ class HashTable {
         return undefined
     }
 
+    values() {
+        let valuesArr = []
+        for(let i = 0; i < this.keyMap.length; i++) {
+            if (this.keyMap[i]) {
+                //console.log(this.keyMap[i])
+                for (let j = 0; j < this.keyMap[i].length; j++) {
+                    valuesArr.push(this.keyMap[i][j][1])
+                }
+            }
+        }
+        return valuesArr
+    }
+
+    keys() {
+        return
+    }
+
 }
 
 let ht= new HashTable(17);
@@ -42,3 +59,4 @@ ht.set("hello world", "yay")
 ht.set("climb", "dogs")
 console.log("getter works?", ht.get("climb"))
 console.log("getter works 2?", ht.get("lazy"))
+console.log(ht.values())
