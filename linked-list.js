@@ -11,19 +11,46 @@ class SinglyLinkedList{
         this.tail = null
         this.length = 0
     }
+
     push(val){
         var newNode = new Node (val)
         if (!this.head) {
             this.head = newNode
             this.tail = this.head
         } else {
-            current = this.head
-            this.head = newNode
-            this.head.next = current            
+            this.tail.next = newNode
+            this.tail = newNode
         }
-        this.length += 1
+        this.length++
+        return this
+    }
 
+    traverse() {
+        let current = this.head
+        while (current) {
+            console.log(current.val)
+            current = current.next
+        }
+    }
 
+    pop() {
+        if(!this.head) {
+            return undefined
+        } 
+        let current = this.head
+        let newTail = current
+        while (current.next) {
+            newTail = current
+            current = current.next
+        }
+        this.tail = newTail
+        this.tail.next = null
+        this.length--
+        if (this.length === 0) {
+            this.head = null
+            this.tail = null
+        }
+        return current
     }
 }
 
@@ -34,3 +61,13 @@ class SinglyLinkedList{
 // console.log(first.next)
 
 let list = new SinglyLinkedList()
+console.log(list.push("figure skate"))
+console.log(list.push("climb"))
+list.traverse()
+console.log(list.push("pupper"))
+console.log(list.pop())
+console.log(list)
+list.pop()
+console.log(list)
+list.pop()
+console.log(list)
