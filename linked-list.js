@@ -52,6 +52,19 @@ class SinglyLinkedList{
         }
         return current
     }
+
+    shift() {
+        if (!this.head) {
+            return undefined
+        }
+       let current = this.head        
+        this.head = current.next
+        this.length--
+        if (this.length === 0) {
+            this.tail = null
+        }
+        return current.value
+    }
 }
 
 // let first = new Node("Hey")
@@ -65,9 +78,5 @@ console.log(list.push("figure skate"))
 console.log(list.push("climb"))
 list.traverse()
 console.log(list.push("pupper"))
-console.log(list.pop())
-console.log(list)
-list.pop()
-console.log(list)
-list.pop()
+console.log(list.shift())
 console.log(list)
