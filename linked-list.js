@@ -94,6 +94,15 @@ class SinglyLinkedList{
         }
         return current
     }
+    set(value, index) {
+        let findIt = this.get(index)
+        if (findIt === null) {
+            return "False"
+        } else {
+            findIt.value = value
+            return "True"
+        }
+    }
 }
 
 // let first = new Node("Hey")
@@ -109,4 +118,6 @@ list.traverse()
 console.log(list.push("pupper"))
 console.log(list)
 console.log(list.unshift("eat"))
-console.log("getter", list.get(1))
+console.log("getter", list.get(0))
+console.log("setter", list.set("lasagna", 0))
+console.log(list)
