@@ -97,11 +97,49 @@ class SinglyLinkedList{
     set(value, index) {
         let findIt = this.get(index)
         if (findIt === null) {
-            return "False"
+            return false
         } else {
             findIt.value = value
-            return "True"
+            return true
         }
+    }
+
+    insert(value, index) {
+        if (index < 0 || index > this.length) {
+            return false
+        }
+        if (index === this.length) {
+            this.push(value);
+            return true
+        }
+        if (index === 0) {
+            this.unshift(value)
+            return true
+        }
+        let newNode = new Node(value)
+        let previous = this.get(index - 1)
+        let temp = previous.next
+        previous.next = newNode
+        newNode.next = temp
+        this.length++
+        return true
+    }
+
+    remove(index) {
+        if (index < 0 || index >= this.length) {
+            return undefined
+        }
+        if (index = this.length - 1) {
+            return this.pop()
+        }
+        if (index === 0) {
+            return this.shift()
+        }
+        let current =  this.get(index)
+        let previous = this.get(index -1 )
+        previous.next = current.next
+        this.length--
+        return current
     }
 }
 
@@ -120,4 +158,6 @@ console.log(list)
 console.log(list.unshift("eat"))
 console.log("getter", list.get(0))
 console.log("setter", list.set("lasagna", 0))
+console.log(list)
+console.log("insert", list.insert("cheesecake",  3))
 console.log(list)
