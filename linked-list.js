@@ -141,6 +141,31 @@ class SinglyLinkedList{
         this.length--
         return current
     }
+
+    print() {
+        let arr = []
+        let current = this.head
+        while(current) {
+            arr.push(current.val)
+            current = current.next
+        }
+    }
+
+    reverse() {
+        let node = this.head
+        this.head = this.tail
+        this.tail = node
+        let previous = null;
+        let next = null;
+
+        for (let i = 0; i < this.length; i++) {
+            next = node.next;
+            node.next = previous
+            previous = node;
+            node = next;
+        }
+        return this
+    }
 }
 
 // let first = new Node("Hey")
@@ -160,4 +185,6 @@ console.log("getter", list.get(0))
 console.log("setter", list.set("lasagna", 0))
 console.log(list)
 console.log("insert", list.insert("cheesecake",  3))
+console.log(list)
+list.reverse()
 console.log(list)
