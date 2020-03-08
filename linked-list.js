@@ -65,6 +65,35 @@ class SinglyLinkedList{
         }
         return current.value
     }
+
+    unshift(val) {
+        let newNode = new Node(val)
+        let current = this.head
+        if (!this.head) {
+            this.head = newNode
+            this.tail = this.head
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;            
+        }
+
+        this.length++
+        return this
+        
+    }
+
+    get(index) {
+        if (index < 0 || index >= this.length) {
+            return null
+        } 
+        let counter = 0
+        let current = this.head
+        while (counter !== index) {
+            current = current.next
+            counter++
+        }
+        return current
+    }
 }
 
 // let first = new Node("Hey")
@@ -78,5 +107,6 @@ console.log(list.push("figure skate"))
 console.log(list.push("climb"))
 list.traverse()
 console.log(list.push("pupper"))
-console.log(list.shift())
 console.log(list)
+console.log(list.unshift("eat"))
+console.log("getter", list.get(1))
