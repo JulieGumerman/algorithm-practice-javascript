@@ -13,21 +13,23 @@ class BinarySearchTree {
 
     insert(value) {
         let newNode = new Node(value)
-        if (value === current.value) return undefined
+        //if (value === current.value) return undefined
         if(this.root === null) {
             this.root = newNode
             return this
         } else {
             let current = this.root
+            console.log("current", current)
+            console.log("current.value", current.value)
             while(true) {
-                if (value < current.value) {
+                if (current.value > value) {
                     if (current.left === null) {
                         current.left = newNode
                         return this
                     } else {
-                        current = current.left;
+                        current = current.left
                     }
-                } else if (value > current.value) {
+                } else if (current.value < value) {
                     if (current.right === null) {
                         current.right = newNode
                         return this
@@ -78,13 +80,32 @@ class BinarySearchTree {
         }
         console.log(data)
     }
+
+    DFSPreOrder() {
+        let data = [];
+
+        function traverse (node) {
+            data.push(node.value);
+            if(node.left) traverse(node.left)
+            if(node.right) traverse (node.right)
+        }
+        traverse(this.root)
+        return data
+    }
 }
 
 let tree = new BinarySearchTree();
+console.log("tree", tree)
 tree.insert(10)
-tree.insert(6)
+
 tree.insert(15)
-tree.insert(3)
 tree.insert(8)
+tree.insert(2)
 tree.insert(20)
-tree.BFS()
+tree.insert(6)
+console.log("tree2", tree)
+
+
+
+//tree.BFS()
+console.log(tree.DFSPreOrder())
