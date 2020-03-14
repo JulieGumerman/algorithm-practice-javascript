@@ -92,20 +92,48 @@ class BinarySearchTree {
         traverse(this.root)
         return data
     }
+
+    DFSPostOrder() {
+        let data = []
+
+        function tyrollean (node) {
+            if (node.left) tyrollean(node.left)
+            if (node.right) tyrollean(node.right)
+            data.push(node.value)
+        }
+
+        tyrollean(this.root)
+        return data
+
+    }
+
+    DFSInOrder() {
+        let data = []
+        function travissimo (node) {
+            if (node.left) travissimo(node.left)
+            data.push(node.value)
+            if (node.right) travissimo(node.right)
+        }
+        travissimo(this.root)
+        return data
+
+    }
 }
 
 let tree = new BinarySearchTree();
 console.log("tree", tree)
 tree.insert(10)
-
-tree.insert(15)
-tree.insert(8)
-tree.insert(2)
-tree.insert(20)
 tree.insert(6)
+tree.insert(15)
+tree.insert(3)
+tree.insert(8)
+tree.insert(20)
+
 console.log("tree2", tree)
 
 
 
 //tree.BFS()
 console.log(tree.DFSPreOrder())
+console.log(tree.DFSPostOrder())
+console.log(tree.DFSInOrder())
