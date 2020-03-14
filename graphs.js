@@ -51,7 +51,7 @@ class Graph{
         let currentVertex;
 
         while (s.length) {
-            console.log("stack", s)
+
             currentVertex = s.pop();
             result.push(currentVertex);
             adjacencyList[currentVertex].forEach(neighbor => {
@@ -65,6 +65,28 @@ class Graph{
         }
         console.log(result)
     }
+
+    bfs(starting_vertex) {
+        const q = [starting_vertex];
+        const result = [];
+        const visited = {}; 
+
+        visited[starting_vertex] = true
+
+        while (q.length) {
+            console.log("q", q)
+            let current = q.shift()
+            result.push(current)
+            this.adjacencyList[current].forEach(neighbor => {
+                if(!visited[neighbor]) {
+                    visited[neighbor] = true
+                    q.push(neighbor)
+                }
+            })
+        }
+        console.log(result)
+    }
+
 } 
 
 g = new Graph()
@@ -85,3 +107,4 @@ g.addEdge("E", "F")
 
 g.dfsRecursive("D")
 g.dfsIterative("F")
+g.bfs("F")
