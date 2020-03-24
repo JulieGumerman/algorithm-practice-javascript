@@ -4,11 +4,9 @@ let counterSquares = (arr1, arr2) => {
     } else {
         let counter = 0
         for (let i = 0; i < arr1.length; i ++) {
-            if (arr2.includes(Math.pow(arr1[1], 2)) === true) {
+            if (arr2.includes(Math.pow(arr1[i], 2)) === true) {
                 counter += 1                
             }
-
-      
         }
         if (counter === arr1.length) {
             return true
