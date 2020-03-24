@@ -3,13 +3,12 @@ let validAnagram = (str1, str2) => {
     if (str1.length !== str2.length) {
         return false
     } else {
-        strOneArray = str1.split("")
-        strTwoArray = str2.split("")
-        counter = 0
-        for (let i = 0; i < strOneArray.length; i++) {
+
+        let counter = 0
+        for (let i = 0; i < str1.length; i++) {
             //if string2 contains letters from string1
                 //increment counter
-            if (strTwoArray.includes(strOneArray[i])) {
+            if (str2.includes(str1[i])) {
                 counter += 1
             } 
         }
@@ -23,6 +22,6 @@ let validAnagram = (str1, str2) => {
 
 }
 
-let tryMe = validAnagram("cats", "stack")
+let tryMe = validAnagram("stack", "tacks")
 
 console.log(tryMe)
