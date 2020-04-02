@@ -9,11 +9,6 @@ const sumZero = sortedArray => {
             }
         }
     }
-    // if (perfectPair.length === 0) {
-    //     console.log(undefined)
-    // } else {
-    //     console.log(perfectPair)
-    // }
     return undefined
 }
 
