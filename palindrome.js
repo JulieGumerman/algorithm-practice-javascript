@@ -10,7 +10,7 @@ const palindromical = word => {
     counter = 0
     for (let j = wordArray.length - 1; counter < wordArray.length; j--) {
         
-        console.log(`catalog[index]: ${catalog[counter]}, wordArray[j]: ${wordArray[j]}`)
+        //console.log(`catalog[index]: ${catalog[counter]}, wordArray[j]: ${wordArray[j]}`)
         if (catalog[counter] !== wordArray[j]) {
             return console.log(`${word} is NOT a palindrome`)
         }
