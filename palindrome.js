@@ -7,11 +7,14 @@ const palindromical = word => {
 
 
     //return console.log(wordArray, catalog)
-    if (wordArray === catalog) {
-        return console.log(`${word} is a palindrome`)
-    } else {
-        return console.log(`${word} is definitely NOT a palindrome`)
+    counter = 0
+    for (let j = wordArray.length - 1; counter < wordArray.length; j--) {
+        counter += 1
+        if (catalog[counter] !== wordArray[j]) {
+            return console.log(`${word} is NOT a palindrome`)
+        }
     }
+    return console.log(`${word} is INDEED a PALINDROME`)
 }
 
 palindromical("racecar")
