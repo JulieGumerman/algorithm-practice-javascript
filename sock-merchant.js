@@ -12,7 +12,7 @@ const sockMerchant = (n, ar) => {
 
         //need an if-else
         if (catalog[sock]) {
-            current = catalog[sock]
+            let current = catalog[sock]
             catalog[sock] = current + 1
         } else {
             catalog[sock] = 1
