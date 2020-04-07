@@ -1,6 +1,4 @@
 const repeatedString = (s, n) => {
-    //make sure you are dealing with the proper # of chars in the string
-    //snag # of a's
 
 
     let remainder = n % s.length
