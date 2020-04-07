@@ -1,6 +1,6 @@
 const hourglasssum = arr => {
 	//variable to hold largest sum
-	let largest_sum = 0
+	let largest_sum = -Infinity
 	//this outer for loop snags each array w/in the array
 	for (let i = 0; i < arr.length -2; i++) {
 		for (let j = 0; j < arr[0].length - 2; j++){
@@ -9,6 +9,7 @@ const hourglasssum = arr => {
 			let row2 = arr[i + 1][j + 1]
 			let row3 = arr[i + 2][j] + arr[i + 2][j+1] + arr[i + 2][j + 2]
 			let current_sum = row1 + row2 + row3
+			console.log(`Current sum: ${current_sum}, largest sum: ${largest_sum}`)
 
 			if (current_sum > largest_sum) {
 				console.log("The current sum just became the largest sum")
@@ -32,25 +33,24 @@ hourglasssum([
 	[0, 0, 2, 4, 4, 0], 
 	[0, 0, 0, 2, 0, 0], 
 	[0, 0, 1, 2, 4, 0]
-]
-	)
+	]
+)
+
+hourglasssum([
+	[-1, -1, 0, -9, -2, -2],
+	[-2, -1, -6, -8, -2, -5],
+	[-1, -1, -1, -2, -3, -4],
+	[-1, -9, -2, -4, -4, -5],
+	[-7, -3, -3, -2, -9, -9],
+	[-1, -3, -1, -2, -4, -5]
+	//expects -6
+])
 
 
 
-	//loop across
-// 	for (let i = 0; i < arr.length - 3; i++) {
-// 		for (let j = 0; j < arr.length; j++) {
-// 			let current_sum = arr[i] + arr[i + 1] + arr[i+2]
-// 			console.log(`Current sum: ${current_sum}`)
-// 			if (current_sum > largest_sum) {
-// 				console.log(`Current sum is now largest sum`)
-// 				largest_sum = current_sum
-// 			}
-// 		}
-// 	//loop down
-// 		//curr_hourglass_sum variable
-// 		//if sum is larger than largest sum
-// 			//largest_sum = sum
-// }
+
+
+
+
 
 
