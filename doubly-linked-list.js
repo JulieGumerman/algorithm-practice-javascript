@@ -79,15 +79,60 @@ class DoublyLinkedList {
         return oldHead
     }
 
-    unshift() {
-        return
+    unshift(val) {
+        let newAtFront = new Node(val)
+        if (this.length === 0) {
+            this.head = newAtFront
+            this.tail = newAtFront
+        } else {
+            this.head.prev = newAtFront
+            newAtFront.next = this.head
+            this.head = newNode
+        }
+
+        length++
+        return this
     }
 
-    get() {
-        return
+    get(index) {
+        //gets an index
+        if (index < 0 || index >= this.length) {
+            return null
+        }
+
+        if (index <= this.length / 2 ) {
+            let count = 0
+            let current = this.head;
+
+            while (count != index) {
+                current = current.next;
+                count ++;
+
+            }        
+        } else {
+            let count = this.length - 1;
+            let current = this.tail
+
+            while (count !== index) {
+                current = current.prev
+                count--
+            }
+        }
+
+        return current
     }
-    set() {
-        return
+
+
+    set(index, value) {
+        let current = this.get(index)
+
+        if (current === null) {
+            return false
+        } else {
+            //rework connections so this location is current
+            current = new Node (value)
+            return true
+        }
     }
     insert() {
         return
