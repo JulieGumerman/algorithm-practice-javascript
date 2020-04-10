@@ -123,22 +123,60 @@ class DoublyLinkedList {
     }
 
 
-    set(index, value) {
+    set(index, val) {
         let current = this.get(index)
 
         if (current === null) {
             return false
         } else {
             //rework connections so this location is current
-            current = new Node (value)
+            current.val = val;
             return true
         }
     }
-    insert() {
-        return
+
+    insert(index, val) {
+        if (index < 0 || index >= this.length) {
+            return false
+        } else if (index === 0) {
+            return this.unshift(val)
+            
+        } else if (index === this.length) {
+            return this.push(val)
+            
+        } else {
+            let newNode = new Node(val)
+            let current = this.get(index - 1)
+            let currentNext = current.next
+
+            current.next = newNode
+            newNode.prev = current
+            newNode.next === currentNext
+            currentNext.prev = newNode
+
+            this.length++
+            return true
+        }
+        
     }
-    remove() {
-        return
+    remove(index) {
+        if (index < 0 || index > this.length) {
+            return false
+        } else if (index === 0) {
+            return this.shift()
+        } else if (index === this.length - 1) {
+            return this.pop()
+        } else {
+            this.length--
+            let nodeToRemove = this.get(index)
+            let beforeNode = nodeToRemove.prev
+            let afterNode = nodeToRemove.next
+            beforeNode.next = afterNode
+            afterNode.prev = beforeNode
+            nodeToRemove.next = null
+            nodeToRemove.prev = null
+            return nodeToRemove
+        }
     }
 }
 
