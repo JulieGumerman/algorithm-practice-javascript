@@ -1,10 +1,27 @@
-const fibonacci = (num, arr)=> {
+const fibonacci = (num)=> {
 
-    arr.push(num)
-    console.log(arr)
+    //let arr = [0, 1];
 
-    if (num <= 1) return 1;
-    return fibonacci(num - 1, arr) + fibonacci(num - 2, arr)
+    let arr = []
+
+    if (num >= 1) {
+        arr.push(0)
+    }
+
+    if (num >= 2) {
+        arr.push(1)
+    }
+
+    if (num >= 2) {
+        for (let i = 2; i < num; i++) {
+            arr.push(arr[i-2] + arr[i-1])
+        }        
+    }
+
+
+    return arr
+
+
 }
 
-fibonacci(3, [])
+console.log(fibonacci(10))
