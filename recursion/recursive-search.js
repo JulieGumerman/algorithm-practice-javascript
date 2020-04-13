@@ -5,4 +5,5 @@ const rs = (arr, num) => {
         //return rs of next num in array, num
     //if last item !== num
         //return -1
+    return
 }

@@ -1,0 +1,7 @@
+const sumRange = (num) => {
+    console.log("NUM", num)
+    if (num === 1) return 1;
+    return num + sumRange(num - 1);
+}
+
+sumRange(5)
