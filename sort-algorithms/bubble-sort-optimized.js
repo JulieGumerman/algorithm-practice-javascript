@@ -1,8 +1,6 @@
 const bubbleSort = (array, counter) => {
 
 
-    console.log(array, counter);
-
     if (counter === 0) {
         return array
     }
@@ -12,6 +10,7 @@ const bubbleSort = (array, counter) => {
             array[i] = array[i + 1]
             array[i + 1] = temp
         }
+        
     }
     return bubbleSort(array, counter - 1)
 }
